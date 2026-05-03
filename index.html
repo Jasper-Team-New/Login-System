@@ -39,30 +39,32 @@
 <h1>Login</h1>
 
 <!-- Email Login -->
-<input id="email" type="email" placeholder="E-Mail"><br> <input id="password" type="password" placeholder="Passwort"><br> <button id="emailLogin">Login mit E-Mail</button>
+<input id="email" type="email" placeholder="E-Mail"><br>
+<input id="password" type="password" placeholder="Passwort"><br>
+<button id="emailLogin">Login mit E-Mail</button>
 
 <!-- Registrierung -->
 <button id="registerBtn" style="background:#28a745;">Registrieren</button>
 
 <script>
-  // Deine Firebase Config
+  // Dein richtiges Firebase Projekt
   const firebaseConfig = {
-    apiKey: "AIzaSyCWgf7NbAkiMp_oX0vMn_Qbgv2zRUur3Ss",
-    authDomain: "sccxxxx-3b2aa.firebaseapp.com",
-    projectId: "sccxxxx-3b2aa",
-    storageBucket: "sccxxxx-3b2aa.firebasestorage.app",
-    messagingSenderId: "590624633616",
-    appId: "1:590624633616:web:507dfa1bbe5de942edab95",
-    measurementId: "G-JGWKN9YFR2"
+    apiKey: "AIzaSyBR0MSh2ccGchO2P4LHjinR3hdai-PJATk",
+    authDomain: "jasper-team-new.firebaseapp.com",
+    projectId: "jasper-team-new",
+    storageBucket: "jasper-team-new.firebasestorage.app",
+    messagingSenderId: "635353957760",
+    appId: "1:635353957760:web:7bc235ec4fbe567e7e6d65",
+    measurementId: "G-V87BD62LHL"
   };
 
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
 
-  // Redirect zurück zu deiner Google-Site
+  // Weiterleitung nach Login
   const redirectURL = "https://sites.google.com/view/jasper-team-new-a5gb4uz4dsaf54/angemeldet-55487";
- 
-  // Email Login
+
+  // Login
   document.getElementById("emailLogin").onclick = () => {
     const email = document.getElementById("email").value;
     const pw = document.getElementById("password").value;
