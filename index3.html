@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registrieren</title>
+
+  <!-- Firebase Browser SDK (Version 8 – funktioniert ohne Module!) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding-top: 80px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Registrieren</h1>
+
+<input id="email" type="email" placeholder="E-Mail"><br>
+<input id="password" type="password" placeholder="Passwort"><br>
+
+<button id="registerBtn">Registrieren</button>
+
+<script>
+  // Dein Firebase Projekt
+  const firebaseConfig = {
+    apiKey: "AIzaSyBR0MSh2ccGchO2P4LHjinR3hdai-PJATk",
+    authDomain: "jasper-team-new.firebaseapp.com",
+    projectId: "jasper-team-new",
+    storageBucket: "jasper-team-new.firebasestorage.app",
+    messagingSenderId: "635353957760",
+    appId: "1:635353957760:web:7bc235ec4fbe567e7e6d65",
+    measurementId: "G-V87BD62LHL"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // Weiterleitung nach erfolgreicher Registrierung
+  const redirectURL = "https://sites.google.com/view/jasper-team-new-a5gb4uz4dsaf54/angemeldet-55487";
+
+  // Registrierung
+  document.getElementById("registerBtn").onclick = () => {
+    const email = document.getElementById("email").value;
+    const pw = document.getElementById("password").value;
+
+    auth.createUserWithEmailAndPassword(email, pw)
+      .then(() => {
+        alert("Registrierung erfolgreich!");
+        window.location.href = redirectURL;
+      })
+      .catch(err => alert(err.message));
+  };
+</script>
+
+</body>
+</html>
